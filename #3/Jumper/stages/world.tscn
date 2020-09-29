@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sounds/bgmusic.ogg" type="AudioStream" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 232.497, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 102.331, 10 )
+
+[node name="world" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 174.353, 142.927 )
+
+[node name="ground_0" type="StaticBody2D" parent="."]
+position = Vector2( 232.35, 282.299 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="shape" type="CollisionShape2D" parent="ground_0"]
+shape = SubResource( 1 )
+
+[node name="ground_1" type="StaticBody2D" parent="."]
+position = Vector2( 540.305, 233.883 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="shape" type="CollisionShape2D" parent="ground_1"]
+shape = SubResource( 2 )
+
+[node name="bgmusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
